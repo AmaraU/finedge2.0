@@ -1,22 +1,9 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import PrelineInit from "../prelineInit";
-import DashboardLayout from "./pages/components/DashboardLayout";
+import { RouterProvider } from "react-router-dom";
 
+import router from "./router/routes";
 
 function App() {
-
   // useSessionTimeout();
-
-  const router = createBrowserRouter([
-    { path: "/", element: <>
-      <PrelineInit />
-      <DashboardLayout />
-    </> },
-  ]);
-
 
   return (
     <>
