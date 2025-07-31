@@ -1,12 +1,18 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import logoutIcon from "@/assets/logout.svg";
 import logo from "@/assets/sidebar/logo.svg";
+import { addMenu } from "@/store/reducers/menu.reducer";
 import { ModuleIcon, userRights } from "@/utils/constants";
 import { filterMenuByRights } from "@/utils/utils";
-
-const SideBarr = () => {
+const SideBar = () => {
   const modules = filterMenuByRights(userRights);
+  const dispatch = useDispatch();
+
+  const handleAddMenu = (menu) => {
+    dispatch(addMenu(menu));
+  };
 
   return (
     <div>
@@ -101,7 +107,6 @@ const SideBarr = () => {
                       aria-expanded="true"
                       aria-controls={"users-accordion-collapse-" + +1}
                     >
-                    
                       <img className="group-hover:hidden" src={" "} alt={""} />
                       <img className="focus:block hidden" src={" "} alt={""} />
                       Dashboard
@@ -204,10 +209,15 @@ const SideBarr = () => {
                             data-hs-accordion-always-open
                           >
                             {buttons.map((child, index) => (
-                              <li key={index}>
+                              <li
+                                onClick={() => {
+                                  handleAddMenu(child.label);
+                                }}
+                                key={index}
+                              >
                                 <Link
                                   className="flex justify-between items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100"
-                                 to={child.path}
+                                  to={child.path}
                                 >
                                   {child.label}
                                   <svg
@@ -253,4 +263,4 @@ const SideBarr = () => {
   );
 };
 
-export default SideBarr;
+export default SideBar;

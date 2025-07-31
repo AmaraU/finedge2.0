@@ -412,3 +412,7 @@ export const userRights = [
   "manage_users",
   "map_gl",
 ];
+
+export const ReduxSlices = {
+  menu: "menu",
+};

@@ -10,7 +10,7 @@ import { formatCustomDate } from "@/utils/utils";
 const TopBar = ({ pathnames }) => {
   return (
     <>
-      <div className=" flex items-center px-4 py-3 gap-4">
+      <div className=" flex items-center px-4 py-3 gap-4 bg-white">
         <BreadCrumb pathnames={pathnames} />
         <hr className="w-px h-12 bg-gray-200 border-0" />
         <SearchInput />
@@ -33,6 +33,10 @@ const TopBar = ({ pathnames }) => {
         <Notification number={10} />
         <hr className="w-px h-12 bg-gray-200 border-0" />
         <FinEdgeLogo />
+        <hr className="w-px h-12 bg-gray-200 border-0" />
+        <p className="whitespace-pre-line font-medium text-[14px] text-[#64748B]">
+          {formatCustomDate(Date.now())}
+        </p>
       </div>
       <hr className="border-gray-200 mb-4" />
     </>
