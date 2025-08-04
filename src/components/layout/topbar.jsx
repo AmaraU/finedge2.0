@@ -33,12 +33,8 @@ const TopBar = ({ pathnames }) => {
         <Notification number={10} />
         <hr className="w-px h-12 bg-gray-200 border-0" />
         <FinEdgeLogo />
-        <hr className="w-px h-12 bg-gray-200 border-0" />
-        <p className="whitespace-pre-line font-medium text-[14px] text-[#64748B]">
-          {formatCustomDate(Date.now())}
-        </p>
       </div>
-      <hr className="border-gray-200 mb-4" />
+      <hr className="border-gray-200" />
     </>
   );
 };

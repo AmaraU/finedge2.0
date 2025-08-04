@@ -1,10 +1,13 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import logoutIcon from "@/assets/logout.svg";
 import logo from "@/assets/sidebar/logo.svg";
-import { addMenu } from "@/store/reducers/menu.reducer";
+import { LOGOUT } from "@/store/actions/types";
+import { addMenu, setActiveMenu } from "@/store/reducers/menu.reducer";
 import { ModuleIcon, userRights } from "@/utils/constants";
+import { ROUTES } from "@/utils/routes";
 import { filterMenuByRights } from "@/utils/utils";
 const SideBar = () => {
   const modules = filterMenuByRights(userRights);
@@ -12,7 +15,19 @@ const SideBar = () => {
 
   const handleAddMenu = (menu) => {
     dispatch(addMenu(menu));
+    dispatch(setActiveMenu(menu));
+    console.log(menu);
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (window.HSAccordion) {
+        window.HSAccordion.autoInit();
+      }
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [modules]);
 
   return (
     <div>
@@ -211,7 +226,7 @@ const SideBar = () => {
                             {buttons.map((child, index) => (
                               <li
                                 onClick={() => {
-                                  handleAddMenu(child.label);
+                                  handleAddMenu(child);
                                 }}
                                 key={index}
                               >
@@ -247,7 +262,13 @@ const SideBar = () => {
           {/* End Body */}
           <div className="p-4">
             <hr className="border-gray-200 mb-4" />
-            <div className="flex justify-between items-center cursor-pointer">
+            <div
+              onClick={() => {
+                dispatch({ type: LOGOUT });
+                Navigate(ROUTES.AUTH.LOGIN);
+              }}
+              className="flex justify-between items-center cursor-pointer"
+            >
               <div className="flex items-center">
                 <img src={logoutIcon} />
                 <p className="text-slate-500 text-md">Logout</p>

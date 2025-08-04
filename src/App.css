@@ -4,3 +4,7 @@
 /* @source "../node_modules/preline/dist/*.js";
 
 @plugin "@tailwindcss/forms"; */
+
+body {
+  background: white;
+}

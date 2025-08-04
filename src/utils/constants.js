@@ -414,5 +414,7 @@ export const userRights = [
 ];
 
 export const ReduxSlices = {
-  menu: "menu",
+  Menu: "menu",
+  User:"user",
+
 };

@@ -8,7 +8,7 @@ export const initialMenuState = {
 };
 
 export const menuSlice = createSlice({
-  name: ReduxSlices.menu,
+  name: ReduxSlices.Menu,
   initialState: initialMenuState,
   reducers: {
     setActiveMenu: (state, action) => {
@@ -16,18 +16,20 @@ export const menuSlice = createSlice({
     },
     removeMenu: (state, action) => {
       state.allOpenedMenu = state.allOpenedMenu.filter(
-        (menu) => menu !== action.payload
+        (menu) => menu.right !== action.payload.right
       );
     },
     addMenu: (state, action) => {
-      if (!state.allOpenedMenu.includes(action.payload)) {
+      if (
+        !state.allOpenedMenu.some((menu) => menu.right === action.payload.right)
+      ) {
         state.allOpenedMenu.push(action.payload);
       }
     },
   },
 });
 
-export const { setAllOpenedMenu, setActiveMenu, removeMenu, addMenu } =
+export const {  setActiveMenu, removeMenu, addMenu } =
   menuSlice.actions;
 
 export default menuSlice.reducer;

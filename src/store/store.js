@@ -14,6 +14,7 @@ import storage from "redux-persist/lib/storage";
 
 import { LOGOUT } from "@/store/actions/types.js";
 import menuReducer, { initialMenuState } from "@/store/reducers/menu.reducer";
+import userReducer, { initialUserState } from "@/store/reducers/user.reducer";
 import { ReduxSlices } from "@/utils/constants";
 
 const middleware = [];
@@ -25,11 +26,12 @@ if (import.meta.env.MODE === "development") {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [ReduxSlices.menu],
+  whitelist: [ReduxSlices.Menu,ReduxSlices.User],
 };
 
 const combinedReducer = combineReducers({
-  [ReduxSlices.menu]: menuReducer,
+  [ReduxSlices.Menu]: menuReducer,
+  [ReduxSlices.User]: userReducer,
 });
 
 const rootReducer = (state, action) => {
@@ -38,7 +40,8 @@ const rootReducer = (state, action) => {
 
     return combinedReducer(
       {
-        [ReduxSlices.menu]: initialMenuState,
+        [ReduxSlices.Menu]: initialMenuState,
+        [ReduxSlices.User]: initialUserState,
       },
       action
     );
