@@ -40,7 +40,7 @@ const MenuItem = ({ menu }) => {
 
   return (
     <div onClick={handleUpdateActiveMenu} className="flex ">
-      <div className="flex  items-center px-[12px] py-[12px] border-[0.5px] border-[#CBD5E1] rounded-tl-[8px] rounded-tr-[8px] bg-white text-[10] font-medium gap-[6px]">
+      <div className="flex  items-center px-[12px] py-[12px] border-[0.5px] border-b-0 border-[#CBD5E1] rounded-tl-[8px] rounded-tr-[8px] bg-white text-[10] font-medium gap-[6px]">
         <p>{menu.label}</p>
         <X
           onClick={handleRemoveMenu}

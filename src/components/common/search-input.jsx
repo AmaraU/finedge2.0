@@ -1,7 +1,7 @@
 import searchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/utils";
 
-const SearchInput = (className) => {
+const SearchInput = ({className}) => {
   return (
     <div className="relative">
       <input

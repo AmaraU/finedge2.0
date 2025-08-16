@@ -32,7 +32,7 @@ const SideBar = () => {
   return (
     <div>
       {/* Navigation Toggle */}
-      <div className="md:hidden py-2 text-center top-0 left-0">
+      {/* <div className="md:hidden py-2 text-center top-0 left-0">
         <button
           type="button"
           className="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-start bg-gray-800 border border-gray-800 text-white text-sm font-medium rounded-lg shadow-2xs align-middle hover:bg-gray-950 focus:outline-hidden focus:bg-gray-900"
@@ -44,17 +44,14 @@ const SideBar = () => {
         >
           <img src={logo} alt="Logo" className="w-7 h-8" />
         </button>
-      </div>
+      </div> */}
       {/* End Navigation Toggle */}
 
       {/* Sidebar */}
       <div
         id="hs-sidebar-collapsible-group"
-        className="hs-overlay [--auto-close:md] md:block md:translate-x-0 md:end-auto md:bottom-0 w-62
-                hs-overlay-open:translate-x-0
-                -translate-x-full transition-all duration-300 transform
-                h-full
-                hidden
+        className="hs-overlay  md:block md:translate-x-0 md:end-auto md:bottom-0 w-[228px]
+               
                 fixed top-0 start-0 bottom-0 z-60
                 bg-white border-e border-gray-200
                 "
@@ -76,7 +73,7 @@ const SideBar = () => {
 
             <div className="md:hidden -me-2">
               {/* Close Button */}
-              <button
+              {/* <button
                 type="button"
                 className="flex justify-center items-center gap-x-3 size-6 bg-white border border-gray-200 text-sm text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100"
                 data-hs-overlay="#hs-sidebar-collapsible-group"
@@ -97,7 +94,7 @@ const SideBar = () => {
                   <path d="m6 6 12 12" />
                 </svg>
                 <span className="sr-only">Close</span>
-              </button>
+              </button> */}
               {/* End Close Button */}
             </div>
           </header>

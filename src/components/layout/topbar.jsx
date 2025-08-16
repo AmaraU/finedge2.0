@@ -10,7 +10,7 @@ import { formatCustomDate } from "@/utils/utils";
 const TopBar = ({ pathnames }) => {
   return (
     <>
-      <div className=" flex items-center px-4 py-3 gap-4 bg-white">
+      <div className=" flex items-center px-4 py-3 gap-4 bg-white w-[1212px] overflow-hidden">
         <BreadCrumb pathnames={pathnames} />
         <hr className="w-px h-12 bg-gray-200 border-0" />
         <SearchInput />

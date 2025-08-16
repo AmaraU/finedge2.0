@@ -5,26 +5,27 @@ import SideBar from "./sidebar";
 import TopBar from "./topbar";
 import MenuItem from "../common/menu-item";
 
+
 const PrivateLayout = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter(Boolean);
   const { allOpenedMenu } = useSelector((state) => state.menu);
 
-
   return (
     <>
       <SideBar />
-      <div className="ml-[250px]  min-h-screen">
+      <div className="ml-[228px] max-w-[1212px] min-h-screen">
         <TopBar pathnames={pathnames} />
 
         {pathnames[0] !== "dashboard" && (
-          <div className="flex gap-2">
+          <div className="flex gap-2 w-[1212px] overflow-hidden bg-[#F6F8FA] p-[16px] pb-0">
             {allOpenedMenu.map((menu, i) => (
               <MenuItem key={i} menu={menu} />
             ))}
           </div>
         )}
-        <Outlet />
+        {pathnames[0] !== "dashboard" && <Outlet />}
+        {pathnames[0] === "dashboard" && <Outlet />}
       </div>
     </>
   );

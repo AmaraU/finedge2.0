@@ -1,5 +1,11 @@
+import Box from "@/components/common/box";
+
 const ManageUsers = () => {
-  return <p>Manage Users</p>;
+  return (
+    <Box>
+      <p>Manage Users</p>
+    </Box>
+  );
 };
 
 export default ManageUsers;
