@@ -11,6 +11,7 @@ import App from "@/App";
 import "@/index.css";
 import "preline/preline";
 
+
 window._ = _;
 window.$ = $;
 window.jQuery = $;

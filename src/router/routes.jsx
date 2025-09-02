@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <AuthGuard />, // 🔑 check login state
+    element: <AuthGuard />,
     children: [
       {
         element: <PrivateLayout />,
