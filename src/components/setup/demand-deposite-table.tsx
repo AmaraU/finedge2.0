@@ -1,5 +1,6 @@
 import React from "react";
 
+// @ts-ignore
 import Pen from "@/assets/pen.svg?react";
 
 const DemandDepositTable = () => {
